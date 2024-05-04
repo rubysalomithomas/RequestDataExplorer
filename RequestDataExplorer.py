@@ -14,7 +14,7 @@ st.sidebar.header('User Input Features')
 @st.cache(allow_output_mutation=True)
 def load_data():
     all_tx_url = "https://jsonplaceholder.typicode.com/todos/1"
-    json = pd.read_json(all_tx_url)
+    json =  requests.get(all_tx_url)
    
 
     return json
