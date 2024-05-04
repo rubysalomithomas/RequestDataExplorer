@@ -15,8 +15,9 @@ st.write("You selected:", option)
 # Web scraping of Request data
 @st.cache(allow_output_mutation=True)
 def load_data(option):
-    all_tx_url = "https://jsonplaceholder.typicode.com/todos/{option}"
+    all_tx_url = "https://jsonplaceholder.typicode.com/todos/option"
     st.write(all_tx_url)
+    st.write(option)
     json =  requests.get(all_tx_url)
     return json
 
