@@ -9,17 +9,17 @@ st.title('Test simple API')
 
 option = st.sidebar.selectbox(
     "Year",
-    ("2019", "2020", "2021"))
+    ("1", "2", "3"))
 
 st.write("You selected:", option)
 # Web scraping of Request data
 @st.cache(allow_output_mutation=True)
-def load_data():
-    all_tx_url = "https://jsonplaceholder.typicode.com/todos/1"
+def load_data(option):
+    all_tx_url = "https://jsonplaceholder.typicode.com/todos/{option}"
     json =  requests.get(all_tx_url)
     return json
 
 
-reqdata = load_data()
+reqdata = load_data(option)
 
 st.json(reqdata.text)
