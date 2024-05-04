@@ -5,9 +5,7 @@ import pandas as pd
 import requests
 import streamlit as st
 
-st.title('Request Transaction and Data Explorer')
-
-st.sidebar.header('User Input Features')
+st.title('Test simple API')
 
 
 # Web scraping of Request data
@@ -15,8 +13,6 @@ st.sidebar.header('User Input Features')
 def load_data():
     all_tx_url = "https://jsonplaceholder.typicode.com/todos/1"
     json =  requests.get(all_tx_url)
-   
-
     return json
 
 
