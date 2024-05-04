@@ -22,8 +22,4 @@ def load_data():
 
 reqdata = load_data()
 
-st.json({
-    'fruit':'apple',
-    'book': 'maths',
-    'game' : 'football'
-})
+st.json(reqdata.text)
