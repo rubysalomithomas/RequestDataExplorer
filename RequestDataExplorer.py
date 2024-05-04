@@ -7,7 +7,12 @@ import streamlit as st
 
 st.title('Test simple API')
 
+st.sidebar("Filters")
+option = st.selectbox(
+    "Year",
+    ("2019", "2020", "2021"))
 
+st.write("You selected:", option)
 # Web scraping of Request data
 @st.cache(allow_output_mutation=True)
 def load_data():
