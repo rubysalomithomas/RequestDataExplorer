@@ -7,11 +7,6 @@ import streamlit as st
 
 st.title('Request Transaction and Data Explorer')
 
-st.markdown("""
-This app performs simple webscraping of Request Network transcations and the associtated IPFS data.
-* **Data source:** [REQ Burner Contract](https://etherscan.io/address/0x7b3c4d90e8af6030d66c07f8f815f9505e379d6f#internaltx), [Custom IPFS node](http://requestipfsdata.switzerlandnorth.azurecontainer.io:8080/ipfs).
-""")
-
 st.sidebar.header('User Input Features')
 
 
