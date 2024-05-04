@@ -7,8 +7,7 @@ import streamlit as st
 
 st.title('Test simple API')
 
-st.sidebar("Filters")
-option = st.selectbox(
+option = st.sidebar.selectbox(
     "Year",
     ("2019", "2020", "2021"))
 
