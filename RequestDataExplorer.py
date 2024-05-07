@@ -16,7 +16,7 @@ st.write("You selected:", year)
 # https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
 def load_data(year):
-    all_tx_url = "https://jsonplaceholder.typicode.com/todos/" + year
+    all_tx_url = "https://api.census.gov/data/" + year + "cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39"
     st.write(all_tx_url)
     st.write(year)
     json =  requests.get(all_tx_url)
