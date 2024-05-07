@@ -13,6 +13,7 @@ option = st.sidebar.selectbox(
 
 st.write("You selected:", option)
 # Web scraping of Request data
+# https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
 def load_data(option):
     all_tx_url = "https://jsonplaceholder.typicode.com/todos/" + option
