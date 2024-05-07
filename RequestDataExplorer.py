@@ -11,7 +11,7 @@ year = st.sidebar.selectbox(
     "Year",
     ("2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019","2020", "2021", "2022", "2023"))
 
-st.write("You selected:", option)
+st.write("You selected:", year)
 # Web scraping of Request data
 # https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
