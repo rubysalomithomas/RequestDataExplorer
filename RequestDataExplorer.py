@@ -48,5 +48,6 @@ def load_data(year,month,state,variable):
 
 
 reqdata = load_data(year,month,state,variable)
+dataframe = pd.DataFrame(reqdata) 
 
-st.json(reqdata.text)
+st.dataframe(dataframe)
