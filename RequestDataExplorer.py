@@ -17,8 +17,8 @@ state = st.sidebar.selectbox(
     "State",
     ("1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"))
 
-VARIABLES =  ("PELKAVL":"(Unemployed)available for work last week", "PELKDUR":"(Unemployed)#weeks on job search", "PELKFTO":"(Unemployed)looking-full-time work wanted",
-     "PELKLL1O":"(Unemployed)looking-activity before search", "PLKLL2O":"(Unemployed)looking-lost/quit job", "PELKLWO":"(Unemployed)looking-when last worked", "PELKM1":"(Unemployed)looking-search methods")
+VARIABLES =  (PELKAVL:"(Unemployed)available for work last week", PELKDUR:"(Unemployed)#weeks on job search", PELKFTO:"(Unemployed)looking-full-time work wanted",
+     PELKLL1O:"(Unemployed)looking-activity before search", PLKLL2O:"(Unemployed)looking-lost/quit job", PELKLWO:"(Unemployed)looking-when last worked", PELKM1:"(Unemployed)looking-search methods")
 variable = st.sidebar.selectbox(
     "Select Variables",
     options=list(VARIABLES.keys()), format_func=displayVariables)
