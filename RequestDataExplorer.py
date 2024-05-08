@@ -40,10 +40,10 @@ st.write("You selected:", year,month,variable)
 # https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
 def load_data(year,month,state,variable):
-    all_tx_url = "https://api.census.gov/data/" + year + "/cps/basic/"+month+"?get="+variable+"&for=state:"+state
-    st.write(all_tx_url)
+    URL = "https://api.census.gov/data/" + year + "/cps/basic/"+month+"?get="+variable+"&for=state:"+state
+    st.write(URL)
     st.write(year)
-    json =  requests.get(all_tx_url)
+    json =  requests.get(URL)
     return json
 
 
