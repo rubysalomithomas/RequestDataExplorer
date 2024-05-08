@@ -16,18 +16,14 @@ month = st.sidebar.selectbox(
 state = st.sidebar.selectbox(
     "State",
     ("1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"))
+
+VARIABLES =  ("PELKAVL":"(Unemployed)available for work last week", "PELKDUR":"(Unemployed)#weeks on job search", "PELKFTO":"(Unemployed)looking-full-time work wanted",
+     "PELKLL1O":"(Unemployed)looking-activity before search", "PLKLL2O":"(Unemployed)looking-lost/quit job", "PELKLWO":"(Unemployed)looking-when last worked", "PELKM1":"(Unemployed)looking-search methods")
 variable = st.sidebar.selectbox(
-    "Variables",
-    ("PELKAVL", "PELKDUR", "PELKFTO", "PELKLL1O", "PLKLL2O", "PELKLWO", "PELKM1"))
-CHOICES = {1: "dataset a", 2: "dataset b", 3: "dataset c"}
-
-
-def format_func(option):
-    return CHOICES[option]
-
-
-option = st.selectbox("Select option", options=list(CHOICES.keys()), format_func=format_func)
-st.write(f"You selected option {option} called {format_func(option)}")
+    "Select Variables",
+    options=list(VARIABLES.keys()), format_func=displayVariables)
+def displayVariables(option):
+    return VARIABLES[option]
 
 st.write("You selected:", year,month,variable)
 # Web scraping of Request data
