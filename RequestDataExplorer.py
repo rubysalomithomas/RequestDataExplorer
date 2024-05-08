@@ -12,7 +12,7 @@ year = st.sidebar.selectbox(
     ("2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019","2020", "2021", "2022", "2023"))
 month = st.sidebar.selectbox(
     "Month",
-    ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct","nov", "dec")
+    ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct","nov", "dec"))
 
 st.write("You selected:", year,month)
 # Web scraping of Request data
