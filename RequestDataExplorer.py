@@ -19,11 +19,13 @@ state = st.sidebar.selectbox(
 
 VARIABLES =  {"PELKAVL":"Unemployed available for work last week", "PELKDUR":"Unemployed Number of weeks on job search", "PELKFTO":"Unemployed looking-full-time work wanted",
      "PELKLL1O":"Unemployed looking-activity before search", "PLKLL2O":"Unemployedlooking-lost/quit job", "PELKLWO":"Unemployed looking-when last worked", "PELKM1":"Unemployed looking-search methods"}
+def displayVariables(option):
+    return VARIABLES[option]
+    
 variable = st.sidebar.selectbox(
     "Select Variables",
     options=list(VARIABLES.keys()), format_func=displayVariables)
-def displayVariables(option):
-    return VARIABLES[option]
+
 
 st.write("You selected:", year,month,variable)
 # Web scraping of Request data
