@@ -51,4 +51,4 @@ response = load_data(year,month,state,variable)
 
 dataframe = pd.DataFrame(response) 
 
-st.dataframe(dataframe.sum())
+st.dataframe(dataframe)
