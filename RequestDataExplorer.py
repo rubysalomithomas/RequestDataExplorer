@@ -50,6 +50,5 @@ def load_data(year,month,state,variable):
 response = load_data(year,month,state,variable)
 
 dataframe = pd.DataFrame(response) 
-ind_list = [0]
 
-st.dataframe(dataframe.iloc[ind_list])
+st.dataframe(list(dataframe.index.values))
