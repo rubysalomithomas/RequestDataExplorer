@@ -20,7 +20,7 @@ st.write("You selected:", year,month,variable)
 # Web scraping of Request data
 # https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
-def load_data(year):
+def load_data(year,month,variable):
     all_tx_url = "https://api.census.gov/data/" + year + "/cps/basic/"+month+"?get="+variable+","&for=state:51&PEEDUCA=39"
     st.write(all_tx_url)
     st.write(year)
@@ -28,6 +28,6 @@ def load_data(year):
     return json
 
 
-reqdata = load_data(year)
+reqdata = load_data(year,month,variable)
 
 st.json(reqdata.text)
