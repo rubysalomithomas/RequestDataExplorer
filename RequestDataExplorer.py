@@ -13,9 +13,17 @@ year = st.sidebar.selectbox(
 month = st.sidebar.selectbox(
     "Month",
     ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct","nov", "dec"))
-state = st.sidebar.selectbox(
-    "State",
-    ("1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"))
+
+STATES =  {1:'Alabama',2:'Alaska',3:'Arizona',4:'Arkansas',5:'California',6:'Colorado',7:'Connecticut',8:'Delaware',9:'Florida',10:'Georgia',11:'Hawaii',12:'Idaho',13:'Illinois',14:'Indiana',15:'Iowa',
+           16:'Kansas',17:'Kentucky',18:'Louisiana',19:'Maine',20:'Maryland',21:'Massachusetts',22:'Michigan',23:'Minnesota',24:'Mississippi',25:'Missouri',26:'Montana',27:'Nebraska',28:'Nevada',29'New Hampshire',
+          30:'New Jersey',31:'New Mexico',32:'New York',33:'North Carolina',34:'North Dakota',35:'Ohio',36:'Oklahoma',37:'Oregon',38:'Pennsylvania',39:'Rhode Island',40:'South Carolina',41:'South Dakota',
+           42:'Tennessee',43:'Texas',44:'Utah',45:'Vermont',46:'Virginia',47:'Washington',48:'West Virginia',49:'Wisconsin',50'Wyoming']
+def displayStates(option):
+    return STATES[option]
+    
+variable = st.sidebar.selectbox(
+    "Select State",
+    options=list(STATES.keys()), format_func=displayStates)
 
 VARIABLES =  {"PELKAVL":"Unemployed available for work last week", "PELKDUR":"Unemployed Number of weeks on job search", "PELKFTO":"Unemployed looking-full-time work wanted",
      "PELKLL1O":"Unemployed looking-activity before search", "PLKLL2O":"Unemployedlooking-lost/quit job", "PELKLWO":"Unemployed looking-when last worked", "PELKM1":"Unemployed looking-search methods"}
