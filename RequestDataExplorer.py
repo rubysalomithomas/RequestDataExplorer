@@ -21,7 +21,7 @@ STATES =  {1:'Alabama',2:'Alaska',3:'Arizona',4:'Arkansas',5:'California',6:'Col
 def displayStates(option):
     return STATES[option]
     
-variable = st.sidebar.selectbox(
+state = st.sidebar.selectbox(
     "Select State",
     options=list(STATES.keys()), format_func=displayStates)
 
