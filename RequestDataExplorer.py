@@ -47,7 +47,7 @@ def load_data(year,month,state,variable):
     return json
 
 
-reqdata = load_data(year,month,state,variable)
-dataframe = pd.DataFrame(reqdata) 
+response = load_data(year,month,state,variable)
+dataframe = pd.DataFrame(response) 
 
 st.dataframe(dataframe)
