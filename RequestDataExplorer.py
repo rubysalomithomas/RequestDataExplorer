@@ -49,4 +49,4 @@ def load_data(year,month,state,variable):
 
 reqdata = load_data(year,month,state,variable)
 
-st.json(reqdata.text)
+st.json(reqdata["PELKLWO"].text)
