@@ -13,6 +13,9 @@ year = st.sidebar.selectbox(
 month = st.sidebar.selectbox(
     "Month",
     ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct","nov", "dec"))
+state = st.sidebar.selectbox(
+    "State",
+    ("1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "7", "7", "7", "7", "7", "7", "7", "7", "7"))
 variable = st.sidebar.selectbox(
     "Variables",
     ("PELKAVL", "PELKDUR", "PELKFTO", "PELKLL1O", "PLKLL2O", "PELKLWO", "PELKM1"))
@@ -20,14 +23,14 @@ st.write("You selected:", year,month,variable)
 # Web scraping of Request data
 # https://api.census.gov/data/2021/cps/basic/jan?get=PELKAVL,PELKDUR,PELKFTO,PELKLL1O,PELKLL2O,PELKLWO,PELKM1&for=state:51&PEEDUCA=39
 @st.cache(allow_output_mutation=True)
-def load_data(year,month,variable):
-    all_tx_url = "https://api.census.gov/data/" + year + "/cps/basic/"+month+"?get="+variable+"&for=state:51&PEEDUCA=39"
+def load_data(year,month,state,variable):
+    all_tx_url = "https://api.census.gov/data/" + year + "/cps/basic/"+month+"?get="+variable+"&for=state:"state
     st.write(all_tx_url)
     st.write(year)
     json =  requests.get(all_tx_url)
     return json
 
 
-reqdata = load_data(year,month,variable)
+reqdata = load_data(year,month,state,variable)
 
 st.json(reqdata.text)
