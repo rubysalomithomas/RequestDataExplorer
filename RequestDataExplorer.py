@@ -81,10 +81,10 @@ if response.status_code == 200 and response.text:
                 test = pd.DataFrame(df['PELKM1'])
                 # Sidebar for user input
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
-                
+                st.dataframe(test)
                 # Perform grouping
                 grouped_data =test.groupby(group_column).count()
-                
+                st.dataframe(grouped_data)
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
                 
