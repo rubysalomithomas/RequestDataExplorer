@@ -4,8 +4,6 @@ import json
 import pandas as pd
 import requests
 import streamlit as st
-import matplotlib.pyplot as plt
-import numpy as np
 
 st.title('Test simple API')
 
@@ -51,18 +49,6 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-data = np.random.randn(100)
-
-# Create a Matplotlib figure
-fig, ax = plt.subplots()
-ax.hist(data, bins=20, alpha=0.5, color='blue')
-ax.set_title('Random Gaussian Data (Histogram)')
-ax.set_xlabel('Values')
-ax.set_ylabel('Frequency')
-
-# Display the figure in Streamlit
-st.pyplot(fig)
-
 # Check response status and content
 if response.status_code == 200 and response.text:
     try:
@@ -95,13 +81,13 @@ if response.status_code == 200 and response.text:
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
                 
                 # Perform grouping
-                grouped_data = df.groupby(group_column)['PELKM1'].sum()
+                #grouped_data = df.groupby(group_column)['PELKM1'].sum()
                 
                 # Create a plot using Plotly
-                fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
+                #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-                st.write("### Grouped Data Bar Chart", fig)
+                st.write("### Grouped Data Bar Chart", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
