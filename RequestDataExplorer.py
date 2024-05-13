@@ -88,6 +88,8 @@ if response.status_code == 200 and response.text:
                 
                 # Display the plot
                 st.write(f"### Unemployed looking-search methods", grouped_data)
+            else if 'PELKAVL' in df.columns::
+                st.write("not ready yet")
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
