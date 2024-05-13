@@ -77,11 +77,13 @@ if response.status_code == 200 and response.text:
                 }
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
                 st.dataframe(df['PELKM1'])  # Show the first few rows of the DataFrame
+
+                test = pd.DataFrame(df['PELKM1'])
                 # Sidebar for user input
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
                 
                 # Perform grouping
-                grouped_data = df.groupby(['PELKM1','state']).count()
+                grouped_data =test.groupby(group_column).count()
                 
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
