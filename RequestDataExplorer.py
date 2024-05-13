@@ -10,7 +10,7 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
     df = pd.read_csv(uploaded_file)
-    filtered_df = df.query('PELKAVL > 30')
+    filtered_df = df.query('PELKAVL > 0')
 
     # Display the DataFrame
     st.write(filtered_df)
