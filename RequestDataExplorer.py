@@ -44,7 +44,7 @@ if uploaded_file is not None:
         # Display the plot
         st.write(f"### Unemployed looking-search methods", grouped_data)
     elif variable =="PELKAVL":
-        job_search_methods = {"1": "Yes", "2": "No"}
+        job_search_methods = {1: "Yes", 2: "No"}
         df = pd.DataFrame(data)
         df2 = df[['PELKAVL']]
         df2["PELKAVL"] = df2["PELKAVL"].map(job_search_methods)
