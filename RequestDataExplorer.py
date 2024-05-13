@@ -61,7 +61,7 @@ if response.status_code == 200:
  df = pd.DataFrame(data[1:], columns=data)
 
 # Display the DataFrame
- st.dataframe(df['PELKAVL'])
+ st.dataframe(df[df['PELKAVL'] > 20])
 else:
  st.write("Failed to retrieve data:", response.status_code)
 
