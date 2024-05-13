@@ -54,7 +54,7 @@ if response.status_code == 200 and response.text:
     try:
         data = response.json()
         if data and len(data) > 1:  # Check if data contains more than just headers
-            print("Data Headers:", data[0])
+            st.write("Data Headers:", data[0])
             df = pd.DataFrame(data[1:], columns=data[0])
 
             # Verify if 'PELKM1' column exists before proceeding
@@ -76,12 +76,12 @@ if response.status_code == 200 and response.text:
                     "13": "Other Passive"
                 }
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
-                print(df.head())  # Show the first few rows of the DataFrame
+                st.dataframe(df.head())  # Show the first few rows of the DataFrame
             else:
-                print("Column 'PELKM1' does not exist in DataFrame.")
+                st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
-            print("Received data is empty or malformed.")
+            st.write("Received data is empty or malformed.")
     except json.JSONDecodeError as e:
-        print("JSON decode error:", e)
+        st.write("JSON decode error:", e)
 else:
-    print("Failed to fetch data or empty response received.")
+    st.write("Failed to fetch data or empty response received.")
