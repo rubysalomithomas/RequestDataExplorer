@@ -49,6 +49,18 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-dataframe = pd.DataFrame(response)
+#dataframe = pd.DataFrame(response)
 #dd= dataframe.sum()
-st.write(dataframe)
+#st.write(dataframe)if response.status_code == 200:
+# Convert the response to JSON
+data = response.json()
+
+# Convert the JSON data to a DataFrame
+# The first element of the list contains the headers, the rest are the data rows
+df = pd.DataFrame(data[1:], columns=data[0])
+
+# Display the DataFrame
+st.write(df.head())
+else:
+st.write("Failed to retrieve data:", response.status_code)
+
