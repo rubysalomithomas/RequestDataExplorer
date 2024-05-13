@@ -61,18 +61,7 @@ if response.status_code == 200:
  df = pd.DataFrame(data[1:], columns=data)
 
 # Display the DataFrame
- st.write(df.columns)
+ st.write(df.loc['PELKAVL'])
 else:
  st.write("Failed to retrieve data:", response.status_code)
 
-
-data = {
-    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
-    'Age': [25, 30, 35, 40, 45],
-    'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix']
-}
-df = pd.DataFrame(data)
-
-# Filter rows where Age is greater than 30
-
-st.write(df)
