@@ -78,8 +78,9 @@ if response.status_code == 200 and response.text:
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
                 st.dataframe(df['PELKM1'])  # Show the first few rows of the DataFrame
 
-                df['count'] =1
-                test = pd.DataFrame(df)
+                #df['count'] =1
+                test = pd.DataFrame(df['PELKM1'])
+                test['count'] =1
                 # Sidebar for user input
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
                 st.dataframe(test)
