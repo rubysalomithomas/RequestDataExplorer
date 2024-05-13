@@ -49,10 +49,10 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-string_data = pd.DataFrame(response) 
+#string_data = pd.DataFrame(response) 
 
 # Convert string to list (assuming the format is correct JSON)
-data_list = json.loads(string_data)
+data_list = json.loads(response)
 st.write(data_list)
 # Create DataFrame
 df = pd.DataFrame(data_list[1:], columns=data_list[0])
