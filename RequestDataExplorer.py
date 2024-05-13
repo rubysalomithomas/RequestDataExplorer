@@ -9,10 +9,8 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
-    df1 = pd.read_csv(uploaded_file)
-    data = df1.to_json(orient='records', lines=True)
-    df = pd.DataFrame(data[1:], columns=data[0])
-    if "PELKM1" in df.columns:
+    data = pd.read_csv(uploaded_file)
+    if "PELKM1" in data.columns:
         # Mapping dictionary for PELKM1
         job_search_methods = {
             "1": "Contacted Employer Directly/Interview",
@@ -30,6 +28,7 @@ if uploaded_file is not None:
             "13": "Other Passive",
         }
         #grouped_data = df.groupby('PELKM1').sum().reset_index()
+        df = pd.DataFrame(data)
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
         st.write(df)
         test = pd.DataFrame(df["PELKM1"])
