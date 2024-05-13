@@ -18,7 +18,7 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
     data = pd.read_csv(uploaded_file)
-    if "PELKM1" in data.columns:
+    if variable == "PELKM1":
         # Mapping dictionary for PELKM1
         job_search_methods = {
             1: "Contacted Employer Directly/Interview",
@@ -35,7 +35,6 @@ if uploaded_file is not None:
             12: "Nothing",
             13: "Other Passive",
         }
-        #grouped_data = df.groupby('PELKM1').sum().reset_index()
         df = pd.DataFrame(data)
         df = df[['PELKM1']]
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
