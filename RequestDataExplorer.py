@@ -89,7 +89,16 @@ if response.status_code == 200 and response.text:
                 # Display the plot
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             elif 'PELKAVL' in df.columns:
-                st.dataframe(df)
+                job_search_methods = {
+                    "1": "Yes"
+                }
+                df['PELKAVL'] = df['PELKAVL'].map(job_search_methods)
+                test = pd.DataFrame(df['PELKAVL'])
+                test['count'] =1
+                # Perform grouping
+                grouped_data =test.groupby('PELKAVL').sum()
+                # Display the plot
+                st.write(f"### Unemployed available for work last week", grouped_data)
             elif 'PELKDUR' in df.columns:
                 st.write("not ready yet")
             elif 'PELKFTO' in df.columns:
