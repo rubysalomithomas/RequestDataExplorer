@@ -87,7 +87,7 @@ if response.status_code == 200 and response.text:
                 #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-                st.write(f"### Grouped Data by {', '.join(selected_group)}", grouped_data)
+                st.write(f"### Grouped Data by", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
