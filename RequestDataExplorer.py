@@ -32,7 +32,6 @@ if uploaded_file is not None:
         test["count"] = 1
         # Perform grouping
         grouped_data = test.groupby("PELKM1").sum()
-        grouped_data.rename(columns={"PELKM1 ": "tee", "Count ": "Count"}, inplace=True)
         # Create a plot using Plotly
         # fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
 
