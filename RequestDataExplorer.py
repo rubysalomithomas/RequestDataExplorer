@@ -61,7 +61,7 @@ if response.status_code == 200:
  df = pd.DataFrame(data[1:], columns=data[0])
 
 # Display the DataFrame
- st.write(df.sum(axis=1).sum())
+ st.write(df)
 else:
  st.write("Failed to retrieve data:", response.status_code)
 
