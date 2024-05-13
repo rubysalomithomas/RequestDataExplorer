@@ -52,9 +52,9 @@ if uploaded_file is not None:
         test["count"] = 1
         # Perform grouping
         # grouped_data =test.groupby('PELKAVL').sum()
-        test.groupby("PELKAVL").sum().rename(columns={"PELKAVL": "test1"})
+        result = test.groupby("PELKAVL").sum()
         # Display the plot
-        st.write(f"### Unemployed available for work last week", test)
+        st.write(f"### Unemployed available for work last week", result)
     elif variable == "PELKDUR":
         st.write("not ready yet")
     elif variable == "PELKFTO":
