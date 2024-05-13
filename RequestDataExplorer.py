@@ -18,7 +18,7 @@ if uploaded_file is not None:
             "3": "Contacted Private Employment Agency",
             "4": "Contacted Friends Or Relatives",
             "5": "Contacted School/University Employment Center",
-            "6": "Sent Out Resumes/Filled Out Application",
+            6: "Sent Out Resumes/Filled Out Application",
             "7": "Checked Union/Professional Registers",
             "8": "Placed Or Answered Ads",
             "9": "Other Active",
