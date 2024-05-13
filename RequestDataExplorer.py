@@ -27,16 +27,13 @@ if uploaded_file is not None:
             "12": "Nothing",
             "13": "Other Passive",
         }
-        #df["PELKM1"] = df["PELKM1"].map(job_search_methods)
-        #test = pd.DataFrame(final["PELKM1"])
-        #test["count"] = 1
-        # Perform grouping
-        grouped_data = df.groupby('PELKM1').sum().reset_index()
-        # Create a plot using Plotly
-        # fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
-
+        #grouped_data = df.groupby('PELKM1').sum().reset_index()
+        df["PELKM1"] = df["PELKM1"].map(job_search_methods)
+        st.write(df)
+        test = pd.DataFrame(df["PELKM1"])
+        test["count"] = 1
         # Display the plot
-        st.write(f"### Unemployed looking-search methods", grouped_data)
+        st.write(f"### Unemployed looking-search methods", test)
     elif "PELKAVL" in df.columns:
         job_search_methods = {"1": "Yes", "2": "No"}
         df["PELKAVL"] = df["PELKAVL"].map(job_search_methods)
