@@ -90,6 +90,16 @@ if response.status_code == 200 and response.text:
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             elif 'PELKAVL' in df.columns:
                 st.write("not ready yet")
+            elif 'PELKDUR' in df.columns:
+                st.write("not ready yet")
+            elif 'PELKFTO' in df.columns:
+                st.write("not ready yet")
+            elif 'PELKLL1O' in df.columns:
+                st.write("not ready yet")
+            elif 'PLKLL2O' in df.columns:
+                st.write("not ready yet")
+            elif 'PELKLWO' in df.columns:
+                st.write("not ready yet")
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
