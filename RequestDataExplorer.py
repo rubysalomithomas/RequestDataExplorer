@@ -30,6 +30,7 @@ if uploaded_file is not None:
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
         test = pd.DataFrame(df["PELKM1"])
         test["count"] = 1
+        st.write(test)
         # Perform grouping
         grouped_data = test.groupby("PELKM1").sum()
         # Create a plot using Plotly
