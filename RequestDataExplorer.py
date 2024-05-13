@@ -81,13 +81,13 @@ if response.status_code == 200 and response.text:
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
                 
                 # Perform grouping
-                #grouped_data = df.groupby(group_column)['PELKM1'].sum()
+                grouped_data = df.groupby(group_column)['PELKM1'].sum()
                 
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-                st.dataframe(grouped_data)
+                st.write(f"### Grouped Data by {', '.join(selected_group)}", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
