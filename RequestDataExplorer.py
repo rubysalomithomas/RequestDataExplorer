@@ -29,6 +29,7 @@ if uploaded_file is not None:
         }
         #grouped_data = df.groupby('PELKM1').sum().reset_index()
         df = pd.DataFrame(data)
+        df = df[['PELKM1']]
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
         st.write(df)
         test = pd.DataFrame(df["PELKM1"])
