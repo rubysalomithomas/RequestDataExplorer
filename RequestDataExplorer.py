@@ -49,6 +49,6 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-dataframe = pd.DataFrame(response)
+dataframe = pd.DataFrame(response, columns=['State', 'Value'])
 #dd= dataframe.sum()
-st.write(dataframe.sum(axis=1).sum())
+st.write(dataframe)
