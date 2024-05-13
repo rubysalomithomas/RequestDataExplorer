@@ -9,7 +9,9 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
-    df = pd.read_csv(uploaded_file)
+    df1 = pd.read_csv(uploaded_file)
+    data = df1.to_json(orient='records', lines=True
+    df = pd.DataFrame(data[1:], columns=data[0])
     if "PELKM1" in df.columns:
         # Mapping dictionary for PELKM1
         job_search_methods = {
@@ -32,8 +34,9 @@ if uploaded_file is not None:
         st.write(df)
         test = pd.DataFrame(df["PELKM1"])
         test["count"] = 1
+        grouped_data =test.groupby('PELKM1').sum()
         # Display the plot
-        st.write(f"### Unemployed looking-search methods", test)
+        st.write(f"### Unemployed looking-search methods", grouped_data)
     elif "PELKAVL" in df.columns:
         job_search_methods = {"1": "Yes", "2": "No"}
         df["PELKAVL"] = df["PELKAVL"].map(job_search_methods)
