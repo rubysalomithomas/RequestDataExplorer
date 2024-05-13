@@ -83,6 +83,8 @@ if response.status_code == 200 and response.text:
                 #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
+
+                grouped_data.rename(columns={'PELKM1': 'SearchMethod', 'count': 'Count'}, inplace=True)
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
