@@ -79,7 +79,7 @@ if response.status_code == 200 and response.text:
                 st.dataframe(df['PELKM1'])  # Show the first few rows of the DataFrame
 
                 df['count'] =1
-                test = pd.DataFrame(df['PELKM1'])
+                test = pd.DataFrame(df)
                 # Sidebar for user input
                 group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
                 st.dataframe(test)
