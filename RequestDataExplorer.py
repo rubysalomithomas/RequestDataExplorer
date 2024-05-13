@@ -62,6 +62,7 @@ if response.status_code == 200:
 
 # Display the DataFrame
  job_search_methods = {
+    "-1":"test",
     "1": "Contacted Employer Directly/Interview",
     "2": "Contacted Public Employment Agency",
     "3": "Contacted Private Employment Agency",
