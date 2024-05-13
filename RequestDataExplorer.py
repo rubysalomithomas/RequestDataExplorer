@@ -76,19 +76,15 @@ if response.status_code == 200 and response.text:
                     "13": "Other Passive"
                 }
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
-                st.dataframe(df['PELKM1'])  # Show the first few rows of the DataFrame
 
                 #df['count'] =1
                 test = pd.DataFrame(df['PELKM1'])
                 test['count'] =1
-                # Sidebar for user input
-                group_column = st.sidebar.selectbox('Select column to group by:', df.columns)
-                st.dataframe(test)
                 # Perform grouping
-                grouped_data =test.groupby(group_column).sum()
+                grouped_data =test.groupby('PELKM1').sum()
                 st.dataframe(grouped_data)
                 # Create a plot using Plotly
-                #fig = px.bar(grouped_data, x=group_column, y='PELKM1', title='Total Values by Category')
+                #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
                 st.write(f"### Grouped Data by", grouped_data)
