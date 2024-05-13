@@ -83,7 +83,7 @@ if response.status_code == 200 and response.text:
                 #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-
+                st.write(grouped_data.columns)
                 grouped_data.rename(columns={'PELKM1': 'SearchMethod', 'count': 'Count'}, inplace=True)
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             else:
