@@ -27,7 +27,7 @@ if uploaded_file is not None:
             "12": "Nothing",
             "13": "Other Passive",
         }
-        df["PELKM1"] = df["PELKM1"].map(job_search_methods)
+        #df["PELKM1"] = df["PELKM1"].map(job_search_methods)
         #test = pd.DataFrame(final["PELKM1"])
         #test["count"] = 1
         # Perform grouping
