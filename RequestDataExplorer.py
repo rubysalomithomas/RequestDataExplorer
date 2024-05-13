@@ -28,8 +28,8 @@ if uploaded_file is not None:
             "13": "Other Passive",
         }
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
-        test = pd.DataFrame(final["PELKM1"])
-        test["count"] = 1
+        #test = pd.DataFrame(final["PELKM1"])
+        #test["count"] = 1
         # Perform grouping
         grouped_data = df.groupby('PELKM1').sum().reset_index()
         # Create a plot using Plotly
