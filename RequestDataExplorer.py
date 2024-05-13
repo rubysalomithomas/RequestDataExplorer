@@ -54,7 +54,6 @@ if response.status_code == 200 and response.text:
     try:
         data = response.json()
         if data and len(data) > 1:  # Check if data contains more than just headers
-            st.write("Data Headers:", data[0])
             df = pd.DataFrame(data[1:], columns=data[0])
 
             # Verify if 'PELKM1' column exists before proceeding
@@ -76,18 +75,15 @@ if response.status_code == 200 and response.text:
                     "13": "Other Passive"
                 }
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
-
-                #df['count'] =1
                 test = pd.DataFrame(df['PELKM1'])
                 test['count'] =1
                 # Perform grouping
                 grouped_data =test.groupby('PELKM1').sum()
-                st.dataframe(grouped_data)
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-                st.write(f"### Grouped Data by", grouped_data)
+                st.write(f"### Unemployed looking-search methods", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
