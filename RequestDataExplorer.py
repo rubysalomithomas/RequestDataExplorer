@@ -61,8 +61,26 @@ if response.status_code == 200:
  df = pd.DataFrame(data[1:], columns=data)
 
 # Display the DataFrame
- fff= df['PELKAVL']>-1
- st.dataframe(fff)
+ job_search_methods = {
+    "1": "Contacted Employer Directly/Interview",
+    "2": "Contacted Public Employment Agency",
+    "3": "Contacted Private Employment Agency",
+    "4": "Contacted Friends Or Relatives",
+    "5": "Contacted School/University Employment Center",
+    "6": "Sent Out Resumes/Filled Out Application",
+    "7": "Checked Union/Professional Registers",
+    "8": "Placed Or Answered Ads",
+    "9": "Other Active",
+    "10": "Looked At Ads",
+    "11": "Attended Job Training Programs/Courses",
+    "12": "Nothing",
+    "13": "Other Passive"
+}
+
+# Apply the mapping to the 'PELKM1' column if it exists
+if 'PELKM1' in df.columns:
+    all_data['PELKM1'] = all_data['PELKM1'].map(job_search_methods)
+    st.dataframe(all_data['PELKM1'])
 else:
  st.write("Failed to retrieve data:", response.status_code)
 
