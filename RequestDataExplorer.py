@@ -13,19 +13,19 @@ if uploaded_file is not None:
     if "PELKM1" in data.columns:
         # Mapping dictionary for PELKM1
         job_search_methods = {
-            "1": "Contacted Employer Directly/Interview",
-            "2": "Contacted Public Employment Agency",
-            "3": "Contacted Private Employment Agency",
-            "4": "Contacted Friends Or Relatives",
-            "5": "Contacted School/University Employment Center",
+            1: "Contacted Employer Directly/Interview",
+            2: "Contacted Public Employment Agency",
+            3: "Contacted Private Employment Agency",
+            4: "Contacted Friends Or Relatives",
+            5: "Contacted School/University Employment Center",
             6: "Sent Out Resumes/Filled Out Application",
-            "7": "Checked Union/Professional Registers",
-            "8": "Placed Or Answered Ads",
-            "9": "Other Active",
-            "10": "Looked At Ads",
-            "11": "Attended Job Training Programs/Courses",
-            "12": "Nothing",
-            "13": "Other Passive",
+            7: "Checked Union/Professional Registers",
+            8: "Placed Or Answered Ads",
+            9: "Other Active",
+            10: "Looked At Ads",
+            11: "Attended Job Training Programs/Courses",
+            12: "Nothing",
+            13: "Other Passive",
         }
         #grouped_data = df.groupby('PELKM1').sum().reset_index()
         df = pd.DataFrame(data)
