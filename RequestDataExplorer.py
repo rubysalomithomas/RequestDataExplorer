@@ -79,8 +79,12 @@ if response.status_code == 200 and response.text:
                 test['count'] =1
                 # Perform grouping
                 grouped_data =test.groupby('PELKM1').agg(
-                                                Total_Sales=('count', 'sum')
+                                                Count=('count', 'sum')
                                             )
+                        grouped_data.rename(columns={
+                        'PELKM1 ': 'tee',
+                        'Count ': 'Count'
+                    }, inplace=True)
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
