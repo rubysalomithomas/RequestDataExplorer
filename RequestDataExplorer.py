@@ -49,6 +49,6 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-dataframe = response.json()
+dataframe = pd.dataframe(response)
 #dd= dataframe.sum()
-st.write(dataframe)
+st.write(dataframe.sum())
