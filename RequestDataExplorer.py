@@ -4,7 +4,8 @@ import json
 import pandas as pd
 import requests
 import streamlit as st
-import plotly.express as px
+import matplotlib.pyplot as plt
+import numpy as np
 
 st.title('Test simple API')
 
@@ -49,6 +50,18 @@ def load_data(year,month,state,variable):
 
 
 response = load_data(year,month,state,variable)
+
+data = np.random.randn(100)
+
+# Create a Matplotlib figure
+fig, ax = plt.subplots()
+ax.hist(data, bins=20, alpha=0.5, color='blue')
+ax.set_title('Random Gaussian Data (Histogram)')
+ax.set_xlabel('Values')
+ax.set_ylabel('Frequency')
+
+# Display the figure in Streamlit
+st.pyplot(fig)
 
 # Check response status and content
 if response.status_code == 200 and response.text:
