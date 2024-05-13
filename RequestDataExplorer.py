@@ -78,13 +78,13 @@ if response.status_code == 200 and response.text:
                 test = pd.DataFrame(df['PELKM1'])
                 test['count'] =1
                 # Perform grouping
-                grouped_data =test.groupby('PELKM1').sum()
+                grouped_data =test.groupby('PELKM1').agg(
+                                                Total_Sales=('count', 'sum')
+                                            )
                 # Create a plot using Plotly
                 #fig = px.bar(grouped_data, x='PELKM1', y='PELKM1', title='Total Values by Category')
                 
                 # Display the plot
-                st.write(grouped_data.columns)
-                grouped_data.rename(columns={'PELKM1': 'SearchMethod', 'count': 'Count'}, inplace=True)
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
