@@ -45,6 +45,7 @@ if uploaded_file is not None:
         st.write(f"### Unemployed looking-search methods", grouped_data)
     elif variable =="PELKAVL":
         job_search_methods = {"1": "Yes", "2": "No"}
+         df = df[['PELKAVL']]
         df["PELKAVL"] = df["PELKAVL"].map(job_search_methods)
         test = pd.DataFrame(df["PELKAVL"])
         test["count"] = 1
