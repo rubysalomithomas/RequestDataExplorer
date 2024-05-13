@@ -10,7 +10,7 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
     df1 = pd.read_csv(uploaded_file)
-    data = df1.to_json(orient='records', lines=True
+    data = df1.to_json(orient='records', lines=True)
     df = pd.DataFrame(data[1:], columns=data[0])
     if "PELKM1" in df.columns:
         # Mapping dictionary for PELKM1
