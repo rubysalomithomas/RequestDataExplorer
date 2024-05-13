@@ -49,27 +49,6 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-dataframe = pd.DataFrame(response) 
-dd= dataframe.sum()
-st.write(dd)
-
-data = {'Column1': [1, 2, 3, 4],
-        'Column2': [5, 6, 7, 8]}
-df = pd.DataFrame(data)
-
-# Sum the entire DataFrame
-total_sum = df.sum().sum()
-
-st.write("Total sum of all elements in the DataFrame:", total_sum)
-
-# Sum each column individually
-column_sums = df.sum()
-
-st.write("Sum of each column:")
-st.write(column_sums)
-
-# You can also sum along rows
-row_sums = df.sum(axis=1)
-
-st.write("Sum of each row:")
-st.write(row_sums)
+dataframe = response.json()
+#dd= dataframe.sum()
+st.write(dataframe)
