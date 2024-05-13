@@ -79,8 +79,8 @@ if response.status_code == 200:
 
 # Apply the mapping to the 'PELKM1' column if it exists
 if 'PELKM1' in df.columns:
-    all_data['PELKM1'] = all_data['PELKM1'].map(job_search_methods)
-    st.dataframe(all_data['PELKM1'])
+    df['PELKM1'] = df['PELKM1'].map(job_search_methods)
+    st.dataframe(df['PELKM1'])
 else:
  st.write("Failed to retrieve data:", response.status_code)
 
