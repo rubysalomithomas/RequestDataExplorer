@@ -51,7 +51,7 @@ response = load_data(year,month,state,variable)
 
 dataframe = pd.DataFrame(response) 
 dd= dataframe.sum()
-st.write(dd.sum(axis=1))
+st.write(dd)
 
 data = {'Column1': [1, 2, 3, 4],
         'Column2': [5, 6, 7, 8]}
