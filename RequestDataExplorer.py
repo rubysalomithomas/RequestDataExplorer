@@ -4,6 +4,14 @@ import pandas as pd
 # Title of the app
 st.title("CSV File to DataFrame")
 
+VARIABLES =  {"PELKAVL":"Unemployed available for work last week", "PELKDUR":"Unemployed Number of weeks on job search", "PELKFTO":"Unemployed looking-full-time work wanted",
+     "PELKLL1O":"Unemployed looking-activity before search", "PLKLL2O":"Unemployedlooking-lost/quit job", "PELKLWO":"Unemployed looking-when last worked", "PELKM1":"Unemployed looking-search methods"}
+def displayVariables(option):
+    return VARIABLES[option]
+    
+variable = st.sidebar.selectbox(
+    "Select Variables",
+    options=list(VARIABLES.keys()), format_func=displayVariables)
 # File uploader allows user to add their own CSV
 uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 
