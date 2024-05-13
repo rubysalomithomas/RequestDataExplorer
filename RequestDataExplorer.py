@@ -41,32 +41,32 @@ if uploaded_file is not None:
             
             # Display the plot
             st.write(f"### Unemployed looking-search methods", grouped_data)
-        elif 'PELKAVL' in df.columns:
-            job_search_methods = {
-                "1": "Yes",
-                "2": "No"
-            }
-            df['PELKAVL'] = df['PELKAVL'].map(job_search_methods)
-            test = pd.DataFrame(df['PELKAVL'])
-            test['count'] =1
-            # Perform grouping
-            #grouped_data =test.groupby('PELKAVL').sum()
-            test.groupby('PELKAVL').sum().rename(columns={'PELKAVL': 'test1'})
-            # Display the plot
-            st.write(f"### Unemployed available for work last week", test)
-        elif 'PELKDUR' in df.columns:
-            st.write("not ready yet")
-        elif 'PELKFTO' in df.columns:
-            st.write("not ready yet")
-        elif 'PELKLL1O' in df.columns:
-            st.write("not ready yet")
-        elif 'PLKLL2O' in df.columns:
-            st.write("not ready yet")
-        elif 'PELKLWO' in df.columns:
-            st.write("not ready yet")
-        else:
-            st.write("Column 'PELKM1' does not exist in DataFrame.")
+    elif 'PELKAVL' in df.columns:
+        job_search_methods = {
+            "1": "Yes",
+            "2": "No"
+        }
+        df['PELKAVL'] = df['PELKAVL'].map(job_search_methods)
+        test = pd.DataFrame(df['PELKAVL'])
+        test['count'] =1
+        # Perform grouping
+        #grouped_data =test.groupby('PELKAVL').sum()
+        test.groupby('PELKAVL').sum().rename(columns={'PELKAVL': 'test1'})
+        # Display the plot
+        st.write(f"### Unemployed available for work last week", test)
+    elif 'PELKDUR' in df.columns:
+        st.write("not ready yet")
+    elif 'PELKFTO' in df.columns:
+        st.write("not ready yet")
+    elif 'PELKLL1O' in df.columns:
+        st.write("not ready yet")
+    elif 'PLKLL2O' in df.columns:
+        st.write("not ready yet")
+    elif 'PELKLWO' in df.columns:
+        st.write("not ready yet")
     else:
-            st.write("Received data is empty or malformed.")
+        st.write("Column 'PELKM1' does not exist in DataFrame.")
+else:
+        st.write("Received data is empty or malformed.")
 
 
