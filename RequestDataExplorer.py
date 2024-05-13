@@ -31,7 +31,6 @@ if uploaded_file is not None:
         df = pd.DataFrame(data)
         df = df[['PELKM1']]
         df["PELKM1"] = df["PELKM1"].map(job_search_methods)
-        st.write(df)
         test = pd.DataFrame(df["PELKM1"])
         test["count"] = 1
         grouped_data =test.groupby('PELKM1').sum()
