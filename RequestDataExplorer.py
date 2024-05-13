@@ -51,7 +51,8 @@ response = load_data(year,month,state,variable)
 
 #dataframe = pd.DataFrame(response)
 #dd= dataframe.sum()
-#st.write(dataframe)if response.status_code == 200:
+#st.write(dataframe)
+if response.status_code == 200:
 # Convert the response to JSON
 data = response.json()
 
