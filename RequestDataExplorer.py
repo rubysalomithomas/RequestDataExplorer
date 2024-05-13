@@ -90,7 +90,8 @@ if response.status_code == 200 and response.text:
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             elif 'PELKAVL' in df.columns:
                 job_search_methods = {
-                    "1": "Yes"
+                    "1": "Yes",
+                    "2": "No"
                 }
                 df['PELKAVL'] = df['PELKAVL'].map(job_search_methods)
                 test = pd.DataFrame(df['PELKAVL'])
