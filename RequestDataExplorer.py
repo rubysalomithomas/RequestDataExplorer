@@ -78,10 +78,8 @@ if response.status_code == 200 and response.text:
                 test = pd.DataFrame(df['PELKM1'])
                 test['count'] =1
                 # Perform grouping
-                grouped_data =test.groupby('PELKM1').agg(
-                                                Count=('count', 'sum')
-                                            )
-                        grouped_data.rename(columns={
+                grouped_data =test.groupby('PELKM1').sum()
+                grouped_data.rename(columns={
                         'PELKM1 ': 'tee',
                         'Count ': 'Count'
                     }, inplace=True)
