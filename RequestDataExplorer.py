@@ -50,6 +50,13 @@ def load_data(year,month,state,variable):
 response = load_data(year,month,state,variable)
 
 dataframe = pd.DataFrame(response) 
-st.write(dataframe.sum().sum())
+string_data = dataframe.decode('utf-8')
+
+# Convert string to list (assuming the format is correct JSON)
+data_list = json.loads(string_data)
+st.write(data_list)
+# Create DataFrame
+df = pd.DataFrame(data_list[1:], columns=data_list[0])
+st.write(df)
 
 #st.dataframe(dataframe)
