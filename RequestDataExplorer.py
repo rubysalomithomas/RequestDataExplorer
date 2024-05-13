@@ -76,7 +76,7 @@ if response.status_code == 200 and response.text:
                     "13": "Other Passive"
                 }
                 df['PELKM1'] = df['PELKM1'].map(job_search_methods)
-                st.dataframe(df)  # Show the first few rows of the DataFrame
+                st.dataframe(df['PELKM1'])  # Show the first few rows of the DataFrame
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
         else:
