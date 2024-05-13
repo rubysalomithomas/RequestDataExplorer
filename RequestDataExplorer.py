@@ -58,7 +58,7 @@ if response.status_code == 200:
 
 # Convert the JSON data to a DataFrame
 # The first element of the list contains the headers, the rest are the data rows
- df = pd.DataFrame(data)
+ df = pd.DataFrame(data[1:], columns=data[0])
 
 # Display the DataFrame
  st.write(df)
