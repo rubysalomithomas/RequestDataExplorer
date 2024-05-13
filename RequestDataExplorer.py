@@ -49,39 +49,39 @@ def load_data(year,month,state,variable):
 
 response = load_data(year,month,state,variable)
 
-#dataframe = pd.DataFrame(response)
-#dd= dataframe.sum()
-#st.write(dataframe)
-if response.status_code == 200:
-# Convert the response to JSON
- data = response.json()
+# Check response status and content
+if response.status_code == 200 and response.text:
+    try:
+        data = response.json()
+        if data and len(data) > 1:  # Check if data contains more than just headers
+            print("Data Headers:", data[0])
+            df = pd.DataFrame(data[1:], columns=data[0])
 
-# Convert the JSON data to a DataFrame
-# The first element of the list contains the headers, the rest are the data rows
- df = pd.DataFrame(data[1:], columns=data)
-
-# Display the DataFrame
- job_search_methods = {
-    "-1":"test",
-    "1": "Contacted Employer Directly/Interview",
-    "2": "Contacted Public Employment Agency",
-    "3": "Contacted Private Employment Agency",
-    "4": "Contacted Friends Or Relatives",
-    "5": "Contacted School/University Employment Center",
-    "6": "Sent Out Resumes/Filled Out Application",
-    "7": "Checked Union/Professional Registers",
-    "8": "Placed Or Answered Ads",
-    "9": "Other Active",
-    "10": "Looked At Ads",
-    "11": "Attended Job Training Programs/Courses",
-    "12": "Nothing",
-    "13": "Other Passive"
-}
-
-# Apply the mapping to the 'PELKM1' column if it exists
-if 'PELKM1' in df.columns:
-    df['PELKM1'] = df['PELKM1'].map(job_search_methods)
-    st.dataframe(df['PELKM1'])
+            # Verify if 'PELKM1' column exists before proceeding
+            if 'PELKM1' in df.columns:
+                # Mapping dictionary for PELKM1
+                job_search_methods = {
+                    "1": "Contacted Employer Directly/Interview",
+                    "2": "Contacted Public Employment Agency",
+                    "3": "Contacted Private Employment Agency",
+                    "4": "Contacted Friends Or Relatives",
+                    "5": "Contacted School/University Employment Center",
+                    "6": "Sent Out Resumes/Filled Out Application",
+                    "7": "Checked Union/Professional Registers",
+                    "8": "Placed Or Answered Ads",
+                    "9": "Other Active",
+                    "10": "Looked At Ads",
+                    "11": "Attended Job Training Programs/Courses",
+                    "12": "Nothing",
+                    "13": "Other Passive"
+                }
+                df['PELKM1'] = df['PELKM1'].map(job_search_methods)
+                print(df.head())  # Show the first few rows of the DataFrame
+            else:
+                print("Column 'PELKM1' does not exist in DataFrame.")
+        else:
+            print("Received data is empty or malformed.")
+    except json.JSONDecodeError as e:
+        print("JSON decode error:", e)
 else:
- st.write("Failed to retrieve data:", response.status_code)
-
+    print("Failed to fetch data or empty response received.")
