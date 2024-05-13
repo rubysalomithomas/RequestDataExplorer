@@ -10,7 +10,7 @@ uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 if uploaded_file is not None:
     # Read the CSV data into a pandas DataFrame
     df = pd.read_csv(uploaded_file)
-     if 'PELKM1' in df.columns:
+    if 'PELKM1' in df.columns:
                 # Mapping dictionary for PELKM1
                 job_search_methods = {
                     "1": "Contacted Employer Directly/Interview",
@@ -66,7 +66,7 @@ if uploaded_file is not None:
                 st.write("not ready yet")
             else:
                 st.write("Column 'PELKM1' does not exist in DataFrame.")
-        else:
+    else:
             st.write("Received data is empty or malformed.")
 
 
