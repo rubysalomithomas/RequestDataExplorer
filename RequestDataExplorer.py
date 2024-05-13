@@ -97,7 +97,8 @@ if response.status_code == 200 and response.text:
                 test = pd.DataFrame(df['PELKAVL'])
                 test['count'] =1
                 # Perform grouping
-                grouped_data =test.groupby('PELKAVL').sum()
+                #grouped_data =test.groupby('PELKAVL').sum()
+                test.groupby('PELKAVL').sum().rename(columns={'PELKAVL': 'test1'})
                 # Display the plot
                 st.write(f"### Unemployed available for work last week", grouped_data)
             elif 'PELKDUR' in df.columns:
