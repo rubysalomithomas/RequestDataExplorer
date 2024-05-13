@@ -89,7 +89,7 @@ if response.status_code == 200 and response.text:
                 # Display the plot
                 st.write(f"### Unemployed looking-search methods", grouped_data)
             elif 'PELKAVL' in df.columns:
-                st.write("not ready yet")
+                st.dataframe(df)
             elif 'PELKDUR' in df.columns:
                 st.write("not ready yet")
             elif 'PELKFTO' in df.columns:
