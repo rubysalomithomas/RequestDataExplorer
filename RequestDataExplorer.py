@@ -43,7 +43,7 @@ if uploaded_file is not None:
         grouped_data =test.groupby('PELKM1').sum()
         # Display the plot
         st.write(f"### Unemployed looking-search methods", grouped_data)
-    elif "PELKAVL" in df.columns:
+    elif variable =="PELKAVL":
         job_search_methods = {"1": "Yes", "2": "No"}
         df["PELKAVL"] = df["PELKAVL"].map(job_search_methods)
         test = pd.DataFrame(df["PELKAVL"])
@@ -53,15 +53,15 @@ if uploaded_file is not None:
         test.groupby("PELKAVL").sum().rename(columns={"PELKAVL": "test1"})
         # Display the plot
         st.write(f"### Unemployed available for work last week", test)
-    elif "PELKDUR" in df.columns:
+    elif variable == "PELKDUR":
         st.write("not ready yet")
-    elif "PELKFTO" in df.columns:
+    elif variable == "PELKFTO":
         st.write("not ready yet")
-    elif "PELKLL1O" in df.columns:
+    elif variable == "PELKLL1O":
         st.write("not ready yet")
-    elif "PLKLL2O" in df.columns:
+    elif variable == "PLKLL2O":
         st.write("not ready yet")
-    elif "PELKLWO" in df.columns:
+    elif variable == "PELKLWO":
         st.write("not ready yet")
     else:
         st.write("Column 'PELKM1' does not exist in DataFrame.")
