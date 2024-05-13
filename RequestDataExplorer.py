@@ -36,18 +36,18 @@ if uploaded_file is not None:
             13: "Other Passive",
         }
         df = pd.DataFrame(data)
-        df = df[['PELKM1']]
-        df["PELKM1"] = df["PELKM1"].map(job_search_methods)
-        test = pd.DataFrame(df["PELKM1"])
+        df1 = df[['PELKM1']]
+        df1["PELKM1"] = df1["PELKM1"].map(job_search_methods)
+        test = pd.DataFrame(df1["PELKM1"])
         test["count"] = 1
         grouped_data =test.groupby('PELKM1').sum()
         # Display the plot
         st.write(f"### Unemployed looking-search methods", grouped_data)
     elif variable =="PELKAVL":
         job_search_methods = {"1": "Yes", "2": "No"}
-        df = df[['PELKAVL']]
-        df["PELKAVL"] = df["PELKAVL"].map(job_search_methods)
-        test = pd.DataFrame(df["PELKAVL"])
+        df2 = df[['PELKAVL']]
+        df2["PELKAVL"] = df2["PELKAVL"].map(job_search_methods)
+        test = pd.DataFrame(df2["PELKAVL"])
         test["count"] = 1
         # Perform grouping
         # grouped_data =test.groupby('PELKAVL').sum()
