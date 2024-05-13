@@ -50,4 +50,4 @@ def load_data(year,month,state,variable):
 response = load_data(year,month,state,variable)
 
 dataframe = pd.DataFrame(response) 
-st.write(dataframe)
+st.write(dataframe.sum())
