@@ -54,14 +54,14 @@ response = load_data(year,month,state,variable)
 #st.write(dataframe)
 if response.status_code == 200:
 # Convert the response to JSON
-data = response.json()
+ data = response.json()
 
 # Convert the JSON data to a DataFrame
 # The first element of the list contains the headers, the rest are the data rows
-df = pd.DataFrame(data[1:], columns=data[0])
+ df = pd.DataFrame(data[1:], columns=data[0])
 
 # Display the DataFrame
-st.write(df.head())
+ st.write(df.head())
 else:
-st.write("Failed to retrieve data:", response.status_code)
+ st.write("Failed to retrieve data:", response.status_code)
 
