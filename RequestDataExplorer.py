@@ -88,10 +88,10 @@ if uploaded_file is not None:
         # Display the plot
          st.write(f"### Unemployed Full time work wanted", grouped_data)
     elif variable == "PELKLL1O":
-         method = {"4": "Something Else",
-                  "2": "School",
-                  "1": "Working",
-                  "3": "Left Military Service"}
+         method = {4: "Something Else",
+                  2: "School",
+                  1: "Working",
+                  3: "Left Military Service"}
          df = pd.DataFrame(data)
          df2 = df[['PELKLL1O']]
          df2["PELKLL1O"] = df2["PELKLL1O"].map(method)
