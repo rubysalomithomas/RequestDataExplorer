@@ -68,7 +68,6 @@ if uploaded_file is not None:
     elif variable == "PELKDUR":
          df = pd.DataFrame(data)
          df2 = df[['PELKDUR']]
-         df2["PELKDUR"] = df2["PELKDUR"].map(job_search_methods)
          test = pd.DataFrame(df2["PELKAVL"])
          test['Mapped_Category'] = test['PELKAVL'].apply(map_score_to_category)
          test["count"] = 1
