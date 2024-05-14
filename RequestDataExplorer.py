@@ -3,7 +3,7 @@ import pandas as pd
 
 # Function to map ranges using dictionary
 def map_score_to_category(score):
-    if score < 5:
+    if score > 0 and score < 6:
         return 'Less than 5 weeks'
     elif score < 10:
         return 'Less than 10 Weeks'
