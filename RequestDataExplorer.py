@@ -86,7 +86,7 @@ if uploaded_file is not None:
          grouped_data =test.groupby('PELKFTO').sum()
         
         # Display the plot
-        st.write(f"### Unemployed available for work last week", grouped_data)
+          st.write(f"### Unemployed available for work last week", grouped_data)
     elif variable == "PELKLL1O":
          st.write("not ready yet")
     elif variable == "PLKLL2O":
