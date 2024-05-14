@@ -117,7 +117,19 @@ if uploaded_file is not None:
         # Display the plot
          st.write(f"### Lost/quit job", grouped_data)
     elif variable == "PELKLWO":
-         st.write("not ready yet")
+         method = { 1: "Within The Last 12 Months",
+                  3: "Never Worked",
+                  2: "More Than 12 Months Ago"}
+         df = pd.DataFrame(data)
+         df2 = df[['PELKLWO']]
+         df2["PELKLL2O"] = df2["PELKLWO"].map(method)
+         test = pd.DataFrame(df2["PELKLWO"])
+         test["count"] = 1
+        # Perform grouping
+         grouped_data =test.groupby('PELKLWO').sum()
+        
+        # Display the plot
+         st.write(f"### Last worked", grouped_data)
     else:
          st.write("Column 'PELKM1' does not exist in DataFrame.")
 else:
