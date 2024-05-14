@@ -15,7 +15,7 @@ def map_score_to_category(score):
 st.title("CSV File to DataFrame")
 
 VARIABLES =  {"PELKAVL":"Unemployed available for work last week", "PELKDUR":"Unemployed Number of weeks on job search", "PELKFTO":"Unemployed looking-full-time work wanted",
-     "PELKLL1O":"Unemployed looking-activity before search", "PLKLL2O":"Unemployedlooking-lost/quit job", "PELKLWO":"Unemployed looking-when last worked", "PELKM1":"Unemployed looking-search methods"}
+     "PELKLL1O":"Unemployed looking-activity before search", "PELKLL2O":"Unemployedlooking-lost/quit job", "PELKLWO":"Unemployed looking-when last worked", "PELKM1":"Unemployed looking-search methods"}
 def displayVariables(option):
     return VARIABLES[option]
     
@@ -102,8 +102,20 @@ if uploaded_file is not None:
         
         # Display the plot
          st.write(f"### Unemployed Looking activity before search", grouped_data)
-    elif variable == "PLKLL2O":
-         st.write("not ready yet")
+    elif variable == "PELKLL2O":
+         method = {2: "Quit Job",
+                  1: "Lost Job",
+                  3: "Temporary Job Ended"}
+         df = pd.DataFrame(data)
+         df2 = df[['PELKLL2O']]
+         df2["PELKLL2O"] = df2["PELKLL2O"].map(method)
+         test = pd.DataFrame(df2["PELKLL2O"])
+         test["count"] = 1
+        # Perform grouping
+         grouped_data =test.groupby('PELKLL2O').sum()
+        
+        # Display the plot
+         st.write(f"### Lost/quit job", grouped_data)
     elif variable == "PELKLWO":
          st.write("not ready yet")
     else:
