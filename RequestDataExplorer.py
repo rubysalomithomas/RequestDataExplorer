@@ -51,10 +51,10 @@ if uploaded_file is not None:
         test = pd.DataFrame(df2["PELKAVL"])
         test["count"] = 1
         # Perform grouping
-        # grouped_data =test.groupby('PELKAVL').sum()
-        result = test.groupby("PELKAVL").sum()
+        grouped_data =test.groupby('PELKAVL').sum()
+        
         # Display the plot
-        st.write(f"### Unemployed available for work last week", result)
+        st.write(f"### Unemployed available for work last week", grouped_data)
     elif variable == "PELKDUR":
         st.write("not ready yet")
     elif variable == "PELKFTO":
