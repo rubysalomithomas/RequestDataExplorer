@@ -1,6 +1,12 @@
 import streamlit as st
 import pandas as pd
 
+# Function to map ranges using dictionary
+def map_ranges(value, range_map):
+    for key in range_map:
+        if value in key:
+            return range_map[key]
+    return 'Unknown'  # In case the value does not fit any range
 # Title of the app
 st.title("CSV File to DataFrame")
 
@@ -56,16 +62,29 @@ if uploaded_file is not None:
         # Display the plot
         st.write(f"### Unemployed available for work last week", grouped_data)
     elif variable == "PELKDUR":
-        st.write("not ready yet")
-    elif variable == "PELKFTO":
-        st.write("not ready yet")
-    elif variable == "PELKLL1O":
-        st.write("not ready yet")
-    elif variable == "PLKLL2O":
-        st.write("not ready yet")
-    elif variable == "PELKLWO":
-        st.write("not ready yet")
-    else:
-        st.write("Column 'PELKM1' does not exist in DataFrame.")
-else:
-    st.write("Received data is empty or malformed.")
+        df = pd.DataFrame(data)
+        df2 = df[['PELKDUR']]
+        df2["PELKDUR"] = df2["PELKDUR"].map(job_search_methods)
+        test = pd.DataFrame(df2["PELKAVL"])
+        # Perform grouping
+         range_dict = {
+                        range(0, 25): 'Poor',
+                        range(25, 50): 'Average',
+                        range(50, 75): 'Good',
+                        range(75, 101): 'Excellent'
+          }
+         test['Mapped_Category'] = test['PELKAVL'].apply(lambda x: map_ranges(x, range_dict))
+         test["count"] = 1
+         grouped_data =test.groupby('Mapped_Category').sum()
+         elif variable == "PELKFTO":
+             st.write("not ready yet")
+         elif variable == "PELKLL1O":
+             st.write("not ready yet")
+         elif variable == "PLKLL2O":
+             st.write("not ready yet")
+         elif variable == "PELKLWO":
+             st.write("not ready yet")
+         else:
+             st.write("Column 'PELKM1' does not exist in DataFrame.")
+     else:
+         st.write("Received data is empty or malformed.")
