@@ -5,7 +5,7 @@ import pandas as pd
 def map_score_to_category(score):
     if score > 0 and score < 6:
         return 'Less than 5 weeks'
-    elif score < 10:
+    elif score > 6 and score < 10:
         return 'Less than 10 Weeks'
     elif score > 10:
         return 'greather than 10 weeks'
