@@ -68,8 +68,8 @@ if uploaded_file is not None:
     elif variable == "PELKDUR":
          df = pd.DataFrame(data)
          df2 = df[['PELKDUR']]
-         test = pd.DataFrame(df2["PELKAVL"])
-         test['Mapped_Category'] = test['PELKAVL'].apply(map_score_to_category)
+         test = pd.DataFrame(df2["PELKDUR"])
+         test['Mapped_Category'] = test['PELKDUR'].apply(map_score_to_category)
          test["count"] = 1
          grouped_data =test.groupby('Mapped_Category').sum()
     elif variable == "PELKFTO":
