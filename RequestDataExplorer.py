@@ -9,8 +9,6 @@ def map_score_to_category(score):
         return 'Less than 10 Weeks'
     elif score > 10:
         return 'greather than 10 weeks'
-    else:
-        return 'Excellent'
 # Title of the app
 st.title("CSV File to DataFrame")
 
