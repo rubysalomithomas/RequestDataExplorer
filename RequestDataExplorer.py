@@ -72,6 +72,7 @@ if uploaded_file is not None:
          test['Mapped_Category'] = test['PELKDUR'].apply(map_score_to_category)
          test["count"] = 1
          grouped_data =test.groupby('Mapped_Category').sum()
+         st.write(f"### Unemployed no of weeks on job search", grouped_data)
     elif variable == "PELKFTO":
          st.write("not ready yet")
     elif variable == "PELKLL1O":
