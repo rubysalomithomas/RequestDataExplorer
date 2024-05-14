@@ -88,7 +88,20 @@ if uploaded_file is not None:
         # Display the plot
          st.write(f"### Unemployed Full time work wanted", grouped_data)
     elif variable == "PELKLL1O":
-         st.write("not ready yet")
+         method = {"4": "Something Else",
+                  "2": "School",
+                  "1": "Working",
+                  "3": "Left Military Service"}
+         df = pd.DataFrame(data)
+         df2 = df[['PELKLL1O']]
+         df2["PELKLL1O"] = df2["PELKLL1O"].map(method)
+         test = pd.DataFrame(df2["PELKLL1O"])
+         test["count"] = 1
+        # Perform grouping
+         grouped_data =test.groupby('PELKLL1O').sum()
+        
+        # Display the plot
+         st.write(f"### Unemployed Looking activity before search", grouped_data)
     elif variable == "PLKLL2O":
          st.write("not ready yet")
     elif variable == "PELKLWO":
