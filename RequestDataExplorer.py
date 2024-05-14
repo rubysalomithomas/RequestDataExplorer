@@ -74,9 +74,9 @@ if uploaded_file is not None:
          grouped_data =test.groupby('Mapped_Category').sum()
          st.write(f"### Unemployed no of weeks on job search", grouped_data)
     elif variable == "PELKFTO":
-         method = {"2": "No",
-                              "3": "Doesn't Matter",
-                              "1": "Yes"}
+         method = {2: "No",
+                              3: "Doesn't Matter",
+                              1: "Yes"}
          df = pd.DataFrame(data)
          df2 = df[['PELKFTO']]
          df2["PELKFTO"] = df2["PELKFTO"].map(method)
