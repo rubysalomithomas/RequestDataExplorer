@@ -73,15 +73,15 @@ if uploaded_file is not None:
          test['Mapped_Category'] = test['PELKAVL'].apply(map_score_to_category)
          test["count"] = 1
          grouped_data =test.groupby('Mapped_Category').sum()
-     elif variable == "PELKFTO":
+    elif variable == "PELKFTO":
          st.write("not ready yet")
-     elif variable == "PELKLL1O":
+    elif variable == "PELKLL1O":
          st.write("not ready yet")
-     elif variable == "PLKLL2O":
+    elif variable == "PLKLL2O":
          st.write("not ready yet")
-     elif variable == "PELKLWO":
+    elif variable == "PELKLWO":
          st.write("not ready yet")
-     else:
+    else:
          st.write("Column 'PELKM1' does not exist in DataFrame.")
  else:
      st.write("Received data is empty or malformed.")
