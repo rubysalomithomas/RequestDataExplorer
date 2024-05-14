@@ -66,24 +66,22 @@ if uploaded_file is not None:
         # Display the plot
         st.write(f"### Unemployed available for work last week", grouped_data)
     elif variable == "PELKDUR":
-        df = pd.DataFrame(data)
-        df2 = df[['PELKDUR']]
-        df2["PELKDUR"] = df2["PELKDUR"].map(job_search_methods)
-        test = pd.DataFrame(df2["PELKAVL"])
-        # Perform grouping
-         
+         df = pd.DataFrame(data)
+         df2 = df[['PELKDUR']]
+         df2["PELKDUR"] = df2["PELKDUR"].map(job_search_methods)
+         test = pd.DataFrame(df2["PELKAVL"])
          test['Mapped_Category'] = test['PELKAVL'].apply(map_score_to_category)
          test["count"] = 1
          grouped_data =test.groupby('Mapped_Category').sum()
-         elif variable == "PELKFTO":
-             st.write("not ready yet")
-         elif variable == "PELKLL1O":
-             st.write("not ready yet")
-         elif variable == "PLKLL2O":
-             st.write("not ready yet")
-         elif variable == "PELKLWO":
-             st.write("not ready yet")
-         else:
-             st.write("Column 'PELKM1' does not exist in DataFrame.")
+     elif variable == "PELKFTO":
+         st.write("not ready yet")
+     elif variable == "PELKLL1O":
+         st.write("not ready yet")
+     elif variable == "PLKLL2O":
+         st.write("not ready yet")
+     elif variable == "PELKLWO":
+         st.write("not ready yet")
      else:
-         st.write("Received data is empty or malformed.")
+         st.write("Column 'PELKM1' does not exist in DataFrame.")
+ else:
+     st.write("Received data is empty or malformed.")
