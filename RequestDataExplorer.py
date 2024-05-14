@@ -122,7 +122,7 @@ if uploaded_file is not None:
                   2: "More Than 12 Months Ago"}
          df = pd.DataFrame(data)
          df2 = df[['PELKLWO']]
-         df2["PELKLL2O"] = df2["PELKLWO"].map(method)
+         df2["PELKLWO"] = df2["PELKLWO"].map(method)
          test = pd.DataFrame(df2["PELKLWO"])
          test["count"] = 1
         # Perform grouping
