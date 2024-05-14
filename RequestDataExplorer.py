@@ -3,12 +3,12 @@ import pandas as pd
 
 # Function to map ranges using dictionary
 def map_score_to_category(score):
-    if score < 25:
-        return 'Poor'
-    elif score < 50:
-        return 'Average'
-    elif score < 75:
-        return 'Good'
+    if score < 5:
+        return 'Less than 5 weeks'
+    elif score < 10:
+        return 'Less than 10 Weeks'
+    elif score > 10:
+        return 'greather than 10 weeks'
     else:
         return 'Excellent'
 # Title of the app
