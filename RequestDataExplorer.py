@@ -9,6 +9,8 @@ def map_score_to_category(score):
         return 'Less than 10 Weeks'
     elif score > 10:
         return 'greather than 10 weeks'
+
+
 # Title of the app
 st.title("CSV File to DataFrame")
 
@@ -72,7 +74,19 @@ if uploaded_file is not None:
          grouped_data =test.groupby('Mapped_Category').sum()
          st.write(f"### Unemployed no of weeks on job search", grouped_data)
     elif variable == "PELKFTO":
-         st.write("not ready yet")
+         method = {"2": "No",
+                              "3": "Doesn't Matter",
+                              "1": "Yes"}
+         df = pd.DataFrame(data)
+         df2 = df[['PELKFTO']]
+         df2["PELKFTO"] = df2["PELKFTO"].map(method)
+         test = pd.DataFrame(df2["PELKFTO"])
+         test["count"] = 1
+        # Perform grouping
+         grouped_data =test.groupby('PELKFTO').sum()
+        
+        # Display the plot
+        st.write(f"### Unemployed available for work last week", grouped_data)
     elif variable == "PELKLL1O":
          st.write("not ready yet")
     elif variable == "PLKLL2O":
