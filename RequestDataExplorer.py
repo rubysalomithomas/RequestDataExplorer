@@ -83,5 +83,5 @@ if uploaded_file is not None:
          st.write("not ready yet")
     else:
          st.write("Column 'PELKM1' does not exist in DataFrame.")
- else:
+else:
      st.write("Received data is empty or malformed.")
